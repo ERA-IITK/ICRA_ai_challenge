@@ -1,0 +1,8 @@
+<launch>
+    <node name="octomap_server" pkg="octomap_server" type="octomap_server_node" output="screen">
+        <!-- latch=false because we have a dynamic map --> 
+        <param name="latch" value="false" />
+        <!-- filter_ground=true because we don't want the ground as an obstacle-->
+        <param name="filter_ground" value="true" />
+    </node>
+</launch>
