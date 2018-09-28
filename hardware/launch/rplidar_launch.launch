@@ -1,0 +1,5 @@
+<launch>
+    <node name="lidar" pkg="rplidar" type="rplidarNode" output="screen">
+
+    </node>
+</launch>
