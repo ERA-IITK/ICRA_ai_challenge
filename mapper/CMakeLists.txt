@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  tf
+  laser_geometry
 )
 
 ## System dependencies are found with CMake's conventions
@@ -133,8 +135,11 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/mapper_node.cpp)
+add_executable(base_link_broadcaster src/base_link_broadcaster.cpp)
+target_link_libraries(base_link_broadcaster ${catkin_LIBRARIES})
 
+add_executable(laserscan_to_pointcloud_converter src/laserscan_to_pointcloud_converter.cpp)
+target_link_libraries(laserscan_to_pointcloud_converter ${catkin_LIBRARIES})
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use

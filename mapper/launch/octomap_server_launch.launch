@@ -5,4 +5,6 @@
         <!-- filter_ground=true because we don't want the ground as an obstacle-->
         <param name="filter_ground" value="true" />
     </node>
+    <node name="base_link_broadcaster" pkg="mapper" type="base_link_broadcaster">
+    </node>
 </launch>
