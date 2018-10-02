@@ -135,8 +135,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(base_link_broadcaster src/base_link_broadcaster.cpp)
-target_link_libraries(base_link_broadcaster ${catkin_LIBRARIES})
+add_executable(lidartop_broadcaster src/lidartop_broadcaster.cpp)
+target_link_libraries(lidartop_broadcaster ${catkin_LIBRARIES})
 
 add_executable(laserscan_to_pointcloud_converter src/laserscan_to_pointcloud_converter.cpp)
 target_link_libraries(laserscan_to_pointcloud_converter ${catkin_LIBRARIES})
