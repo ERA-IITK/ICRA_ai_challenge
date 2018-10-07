@@ -6,8 +6,10 @@
         <!-- latch=false because we have a dynamic map --> 
         <param name="latch" value="false" />
         <!-- filter_ground=true because we don't want the ground as an obstacle-->
-        <param name="filter_ground" value="false" />
+        <param name="filter_ground" value="true" />
+        <!-- base_frame_id=base_link because we don't want the ground as an obstacle-->
+        <param name="base_frame_id" value="base_link" />
     </node>
-    <node name="lidartop_broadcaster" pkg="mapper" type="lidartop_broadcaster">
+    <node name="tf_broadcaster" pkg="mapper" type="tf_broadcaster">
     </node>
 </launch>
