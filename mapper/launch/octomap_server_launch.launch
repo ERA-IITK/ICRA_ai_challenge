@@ -1,15 +1,14 @@
 <launch>
+    <arg name="cloud_in" default="/cloud_in"/>
     <param name="use_sim_time" type="bool" value="false" />
+
+    <node name="tf_broadcaster" pkg="mapper" type="tf_broadcaster">
+    </node>
 
     <node name="octomap_server" pkg="octomap_server" type="octomap_server_node" output="screen">
         <param name="frame_id" value="odom" />
-        <!-- latch=false because we have a dynamic map --> 
         <param name="latch" value="false" />
-        <!-- filter_ground=true because we don't want the ground as an obstacle-->
-        <param name="filter_ground" value="true" />
-        <!-- base_frame_id=base_link because we don't want the ground as an obstacle-->
-        <param name="base_frame_id" value="base_link" />
-    </node>
-    <node name="tf_broadcaster" pkg="mapper" type="tf_broadcaster">
+        <param name="filter_ground" value="false" />
+        <remap from="/cloud_in" to="$(arg cloud_in)"/>
     </node>
 </launch>

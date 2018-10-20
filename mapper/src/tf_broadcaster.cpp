@@ -10,7 +10,6 @@ int main(int argc, char** argv){
     tf::Transform laser_to_odom;
     tf::Transform odom_to_map;
     tf::TransformListener listener;
-
     ros::Rate rate(30.0);
     while (node.ok()){
         tf::StampedTransform transform;
@@ -24,8 +23,7 @@ int main(int argc, char** argv){
         laser_to_odom.setOrigin(transform.getOrigin());
         laser_to_odom.setRotation(transform.getRotation());
         broadcaster.sendTransform(tf::StampedTransform(laser_to_odom, ros::Time::now(), "odom", "laser"));
-
-	    odom_to_map.setOrigin(tf::Vector3(0.0, 0.0, 0.0));
+	odom_to_map.setOrigin(tf::Vector3(0.0, 0.0, 0.0));
         tf::Quaternion q;
         q.setRPY(0, 0, 0);
         odom_to_map.setRotation(q);

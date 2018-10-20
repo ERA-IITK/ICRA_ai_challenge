@@ -1,5 +1,0 @@
-<launch>
-    <node name="lidar" pkg="rplidar" type="rplidarNode" output="screen">
-        <param name="frame_id" type="string" value="laser">
-    </node>
-</launch>
