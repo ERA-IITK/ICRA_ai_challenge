@@ -1,0 +1,5 @@
+<launch>
+    <node name="lidar" pkg="urg_node" type="urg_node" output="screen">
+        
+    </node>
+</launch>

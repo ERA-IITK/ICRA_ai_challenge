@@ -1,0 +1,14 @@
+<launch>
+    <arg name="cloud_in" default="/cloud_in"/>
+    <param name="use_sim_time" type="bool" value="false" />
+
+    <node name="tf_broadcaster" pkg="mapper" type="tf_broadcaster">
+    </node>
+
+    <node name="octomap_server" pkg="octomap_server" type="octomap_server_node" output="screen">
+        <param name="frame_id" value="odom" />
+        <param name="latch" value="false" />
+        <param name="filter_ground" value="false" />
+        <remap from="/cloud_in" to="$(arg cloud_in)"/>
+    </node>
+</launch>
